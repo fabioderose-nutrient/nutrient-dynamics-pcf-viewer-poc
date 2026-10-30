@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="NutrientDemo" constructor="NutrientPdfViewer" version="0.0.1" display-name-key="Nutrient PDF Viewer (Audit)" description-key="Nutrient Web SDK PDF viewer with a full audit and engagement analytics trail persisted to Dataverse" control-type="standard" >
+    <external-service-usage enabled="true">
+      <domain>cdn.cloud.pspdfkit.com</domain>
+    </external-service-usage>
+    <!-- Bound to a text/URL column on the record that holds the document location -->
+    <property name="documentUrl" display-name-key="Document URL" description-key="URL of the PDF document to display" of-type="SingleLine.Text" usage="bound" required="true" />
+    <!-- Maker-facing viewer configuration, all with an immediately visible effect -->
+    <property name="theme" display-name-key="Viewer theme" description-key="Light or dark viewer theme" of-type="Enum" usage="input" required="false" default-value="LIGHT">
+      <value name="LIGHT" display-name-key="Light" default="true">LIGHT</value>
+      <value name="DARK" display-name-key="Dark">DARK</value>
+    </property>
+    <property name="pageLayout" display-name-key="Page layout" description-key="Single or double page layout" of-type="Enum" usage="input" required="false" default-value="SINGLE">
+      <value name="SINGLE" display-name-key="Single page" default="true">SINGLE</value>
+      <value name="DOUBLE" display-name-key="Double page" default="false">DOUBLE</value>
+    </property>
+    <property name="allowDownload" display-name-key="Allow download" description-key="Show the download button (audited)" of-type="TwoOptions" usage="input" required="false" default-value="true" />
+    <property name="allowPrint" display-name-key="Allow print" description-key="Show the print button (audited)" of-type="TwoOptions" usage="input" required="false" default-value="true" />
+    <property name="readOnly" display-name-key="Read only" description-key="Disable annotation and form editing tools" of-type="TwoOptions" usage="input" required="false" default-value="false" />
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="css/NutrientPdfViewer.css" order="1" />
+    </resources>
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  </control>
+</manifest>

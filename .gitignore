@@ -1,0 +1,30 @@
+# Dependencies
+/node_modules
+
+# Generated types and build output
+**/generated
+/out
+/bin
+/obj
+*.binlog
+/.vs
+
+# Settings file the Power Platform tooling may create in the project folder
+/~/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Python caches (sample generator)
+__pycache__/
+*.pyc
+.venv/
+
+# Logs, caches, OS and tool files
+*.log
+.DS_Store
+.idea/
+.vscode/
+*.zip

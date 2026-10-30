@@ -1,0 +1,348 @@
+.audit-root {
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+    font-family: "Segoe UI", -apple-system, sans-serif;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.audit-viewer {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+}
+
+/* ------------------------- Audit panel ------------------------- */
+
+.audit-panel {
+    flex: 0 0 330px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e1e1e1;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.audit-panel-header {
+    padding: 12px 14px 10px;
+    background: #1a1a2e;
+    color: #fff;
+}
+
+.audit-panel-header h2 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.audit-mode {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #6b7280;
+    color: #fff;
+}
+
+.audit-mode.connected {
+    background: #16a34a;
+}
+
+.audit-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+}
+
+.audit-btn {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    cursor: pointer;
+}
+
+.audit-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.audit-clickable {
+    cursor: pointer;
+}
+
+.audit-log-row.audit-clickable:hover,
+.audit-bar-row.audit-clickable:hover {
+    background: #eef2ff;
+}
+
+.audit-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 10px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.audit-stat {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.audit-stat label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+}
+
+.audit-stat b {
+    font-size: 13px;
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.audit-progress {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.audit-progress-track {
+    flex: 1;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.audit-progress-fill {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.audit-section {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.audit-section h3 {
+    margin: 0 0 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+}
+
+.audit-empty {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* Time-per-page bars */
+
+.audit-pagebars {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.audit-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.audit-bar-label {
+    flex: 0 0 32px;
+    font-size: 11px;
+    color: #374151;
+}
+
+.audit-bar-track {
+    flex: 1;
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.audit-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4f46e5, #2563eb);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.audit-bar-secs {
+    flex: 0 0 48px;
+    font-size: 11px;
+    color: #374151;
+    text-align: right;
+}
+
+/* Event log */
+
+.audit-log-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-bottom: none;
+}
+
+.audit-log {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.audit-log-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 3px 0;
+    font-size: 11px;
+    border-bottom: 1px dashed #eee;
+}
+
+/* Expandable "parameters" payload (full annotation JSON) */
+
+.audit-params {
+    flex-basis: 100%;
+    margin: 2px 0 2px 66px;
+}
+
+.audit-params summary {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+    color: #4f46e5;
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 9px;
+    padding: 1px 8px;
+    user-select: none;
+}
+
+.audit-params summary::before {
+    content: "\25B8 ";
+}
+
+.audit-params[open] summary::before {
+    content: "\25BE ";
+}
+
+.audit-params pre {
+    text-align: left;
+    margin: 4px 0 2px;
+    padding: 6px 8px;
+    max-height: 180px;
+    overflow: auto;
+    font-size: 10px;
+    line-height: 1.45;
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 5px;
+    white-space: pre;
+}
+
+.audit-log-time {
+    flex: 0 0 60px;
+    color: #9ca3af;
+}
+
+.audit-log-type {
+    font-weight: 600;
+    color: #374151;
+}
+
+.audit-ev-DocumentOpened { color: #16a34a; }
+.audit-ev-DocumentClosed { color: #dc2626; }
+.audit-ev-SessionSummary { color: #7c3aed; }
+.audit-ev-PageViewed { color: #2563eb; }
+.audit-ev-PageLeft { color: #6b7280; }
+.audit-ev-DocumentDownloaded { color: #d97706; }
+.audit-ev-DocumentPrinted { color: #d97706; }
+.audit-ev-ViewPaused, .audit-ev-ViewResumed { color: #0891b2; }
+[class*="audit-ev-Annotation"] { color: #ea580c; }
+[class*="audit-ev-Comment"], [class*="audit-ev-Bookmark"] { color: #ca8a04; }
+.audit-ev-SearchPerformed { color: #9333ea; }
+.audit-ev-TextSelected, .audit-ev-TextCopied { color: #0d9488; }
+.audit-ev-ZoomChanged, [class*="audit-ev-Sidebar"], [class*="audit-ev-Layout"], [class*="audit-ev-Scroll"], [class*="audit-ev-Interaction"] { color: #64748b; }
+[class*="audit-ev-FormField"], .audit-ev-FormSubmitted, .audit-ev-SignatureAdded { color: #be185d; }
+.audit-ev-ConfigChanged { color: #0369a1; }
+.audit-ev-DocumentModified, .audit-ev-ActionUndone, .audit-ev-ActionRedone { color: #b45309; }
+
+/* Note injected under the harness sidebar title (harness only) */
+
+.audit-harness-note {
+    font-size: 11px;
+    line-height: 1.45;
+    color: #6b7280;
+    margin: 4px 0 10px;
+    text-align: left;
+}
+
+/* Interaction counter chips */
+
+.audit-chipwrap {
+    grid-column: 1 / -1;
+}
+
+.audit-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    max-height: 76px;
+    overflow-y: auto;
+}
+
+.audit-chip {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 9px;
+    background: #eef2f7;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.audit-chip i {
+    font-style: normal;
+    font-weight: 600;
+}
+
+.audit-log-detail {
+    color: #6b7280;
+    flex: 1;
+}
+
+.audit-log-status {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    background: #e5e7eb;
+    color: #6b7280;
+}
+
+.audit-log-status.ok {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.audit-log-status.err {
+    background: #fee2e2;
+    color: #b91c1c;
+}
